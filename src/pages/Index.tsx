@@ -20,6 +20,8 @@ import {
   Brain,
   Trophy,
   DollarSign,
+  Network, 
+  Layers,
   Globe
 } from 'lucide-react';
 
@@ -28,146 +30,293 @@ const Index = () => {
 
   const projects = [
     {
-      id: 'dx-platform',
-      title: 'Developer Experience (DX) Platform',
-      icon: <Code className="w-6 h-6" />,
-      description: 'Self-service infrastructure portal with golden path templates',
-      difficulty: 85,
-      marketDemand: 95,
-      salaryImpact: '$180K+ USD',
-      timeline: '12-16 weeks',
-      architecture: {
-        components: [
-          'React/TypeScript Frontend',
-          'Node.js/Express Backend',
-          'Backstage.io Core',
-          'Terraform Templates',
-          'ArgoCD GitOps',
-          'Kubernetes Operators',
-          'PostgreSQL Database',
-          'Redis Cache'
-        ],
-        flow: 'Developer Request → Template Selection → Infrastructure Provisioning → CI/CD Setup → Monitoring Integration'
-      },
-      prerequisites: [
-        { skill: 'Kubernetes Administration', level: 'Advanced', reason: 'Core platform runs on K8s with custom operators' },
-        { skill: 'React/TypeScript', level: 'Intermediate', reason: 'Backstage plugins and custom UI components' },
-        { skill: 'Terraform', level: 'Advanced', reason: 'Dynamic infrastructure template generation' },
-        { skill: 'GitOps/ArgoCD', level: 'Intermediate', reason: 'Automated deployment workflows' },
-        { skill: 'PostgreSQL', level: 'Basic', reason: 'Backstage catalog and user data storage' }
-      ],
-      outcomes: [
-        'Reduce developer onboarding from 2 weeks to 2 hours',
-        'Increase deployment frequency by 300%',
-        'Standardize security and compliance across all services',
-        'Save $2M+ annually in developer productivity'
-      ],
-      ctoPitch: 'Transform how developers ship code by eliminating toil and standardizing best practices. ROI: 400% in first year through reduced onboarding time and faster feature delivery.',
-      testingQuestions: [
-        'How would you implement dynamic Terraform template generation in Backstage?',
-        'Design a plugin architecture for extending the platform capabilities',
-        'How would you handle multi-tenant resource isolation?',
-        'Explain your strategy for rolling updates with zero downtime',
-        'How would you implement cost allocation and chargeback?'
-      ]
-    },
-    {
-      id: 'observability-platform',
-      title: 'Observability & Reliability Platform',
-      icon: <MonitorSpeaker className="w-6 h-6" />,
-      description: 'Multi-cloud monitoring with SLO management and chaos engineering',
+      id: 'ecommerce-platform',
+      title: 'Cloud-Native E-Commerce Platform',
+      icon: <Server className="w-6 h-6" />,
+      description: '11 microservices with Istio service mesh on GKE',
       difficulty: 90,
-      marketDemand: 92,
-      salaryImpact: '$190K+ USD',
+      marketDemand: 95,
+      salaryImpact: '$170K+ USD',
       timeline: '14-18 weeks',
       architecture: {
         components: [
-          'Prometheus/Grafana Stack',
-          'OpenTelemetry Collectors',
-          'Jaeger Tracing',
-          'SLO Management API',
-          'Chaos Engineering Engine',
-          'ML Anomaly Detection',
-          'PagerDuty Integration',
-          'Cost Analytics Engine'
+          'Google Kubernetes Engine (GKE)',
+          'Istio Service Mesh',
+          'Terraform Infrastructure',
+          'ArgoCD GitOps',
+          'Prometheus + Grafana',
+          'Cloud SQL (PostgreSQL)',
+          'Redis Cache',
+          'Cloud Load Balancer',
+          'Cloud CDN',
+          'Cloud Build CI/CD',
+          'Jaeger Tracing'
         ],
-        flow: 'Data Collection → Processing → Storage → Analysis → Alerting → Incident Response → Post-mortem'
+        flow: 'Frontend → Load Balancer → Istio Gateway → Microservices → Databases → Monitoring'
       },
       prerequisites: [
-        { skill: 'Prometheus/Grafana', level: 'Advanced', reason: 'Core metrics collection and visualization' },
-        { skill: 'OpenTelemetry', level: 'Intermediate', reason: 'Distributed tracing and metrics correlation' },
-        { skill: 'Go Programming', level: 'Intermediate', reason: 'Custom exporters and operators' },
-        { skill: 'Statistics/ML', level: 'Basic', reason: 'Anomaly detection algorithms' },
-        { skill: 'SRE Principles', level: 'Advanced', reason: 'SLO/SLI design and error budget management' }
+        { skill: 'Google Cloud Platform', level: 'Advanced', reason: 'GKE, Cloud SQL, IAM, networking services' },
+        { skill: 'Kubernetes', level: 'Advanced', reason: 'Multi-cluster management, operators, CRDs' },
+        { skill: 'Istio Service Mesh', level: 'Advanced', reason: 'Traffic management, security policies, observability' },
+        { skill: 'Terraform', level: 'Advanced', reason: 'Complex GCP infrastructure with modules' },
+        { skill: 'Go/Java Microservices', level: 'Intermediate', reason: '11 interconnected services with APIs' }
       ],
       outcomes: [
-        'Achieve 99.99% uptime across all critical services',
-        'Reduce MTTR from 45 minutes to 8 minutes',
-        'Prevent 85% of incidents through proactive monitoring',
-        'Save $5M+ annually through improved reliability'
+        'Handle 100K+ concurrent users with auto-scaling',
+        'Achieve 99.9% uptime with multi-region deployment',
+        'Reduce deployment time from hours to minutes',
+        'Enable A/B testing and canary deployments'
       ],
-      ctoPitch: 'Build bulletproof systems with predictive failure detection. ROI: 600% through prevented outages and optimized performance.',
+      ctoPitch: 'Modern cloud-native architecture that scales infinitely and reduces operational overhead by 70%. ROI: 300% through improved developer velocity and reduced infrastructure costs.',
       testingQuestions: [
-        'Design a SLO framework for a microservices architecture',
-        'How would you implement automated chaos experiments safely?',
-        'Explain your approach to distributed tracing correlation',
-        'How would you detect anomalies in time-series data?',
-        'Design an incident response automation system'
+        'How would you implement circuit breakers in Istio for resilient microservices?',
+        'Design a multi-region GKE setup with cross-region load balancing',
+        'Explain your strategy for zero-downtime deployments across 11 services',
+        'How would you implement distributed tracing across the entire platform?',
+        'Design a cost optimization strategy for GCP resources'
       ]
     },
     {
-      id: 'security-platform',
-      title: 'Security & Compliance Platform',
-      icon: <Shield className="w-6 h-6" />,
-      description: 'Zero-trust security with policy-as-code and automated compliance',
+      id: 'saas-platform',
+      title: 'Multi-Tenant SaaS Platform',
+      icon: <Users className="w-6 h-6" />,
+      description: 'Enterprise SaaS with tenant isolation and global scaling',
       difficulty: 95,
+      marketDemand: 98,
+      salaryImpact: '$190K+ USD',
+      timeline: '16-20 weeks',
+      architecture: {
+        components: [
+          'Multi-Tenant Architecture',
+          'Kubernetes Namespaces',
+          'RBAC + Tenant Isolation',
+          'PostgreSQL Multi-tenancy',
+          'Redis Cluster',
+          'Elasticsearch Logging',
+          'Kafka Event Streaming',
+          'Keycloak Identity',
+          'Stripe Billing Integration',
+          'Global Load Balancing'
+        ],
+        flow: 'Tenant Request → Identity Check → Namespace Routing → Isolated Resources → Billing → Analytics'
+      },
+      prerequisites: [
+        { skill: 'Multi-tenancy Patterns', level: 'Advanced', reason: 'Database, application, and infrastructure isolation' },
+        { skill: 'Identity & Access Management', level: 'Advanced', reason: 'OIDC, SAML, RBAC across tenants' },
+        { skill: 'Event-Driven Architecture', level: 'Intermediate', reason: 'Kafka, event sourcing, CQRS patterns' },
+        { skill: 'Database Sharding', level: 'Intermediate', reason: 'PostgreSQL partitioning and scaling strategies' },
+        { skill: 'Billing & Metering', level: 'Basic', reason: 'Usage tracking and subscription management' }
+      ],
+      outcomes: [
+        'Support 10,000+ tenants with isolated resources',
+        'Achieve sub-100ms response times globally',
+        'Reduce onboarding time from weeks to hours',
+        'Enable self-service tenant management'
+      ],
+      ctoPitch: 'Scalable SaaS architecture that allows rapid customer onboarding and global expansion. ROI: 500% through reduced support costs and faster time-to-market.',
+      testingQuestions: [
+        'Design a tenant isolation strategy that balances security and cost',
+        'How would you implement cross-tenant analytics without data leakage?',
+        'Explain your approach to database schema evolution in multi-tenant setup',
+        'How would you handle tenant-specific customizations and configurations?',
+        'Design a billing system that tracks usage across multiple services'
+      ]
+    },
+    {
+      id: 'global-cdn',
+      title: 'Global Content Delivery Network',
+      icon: <Globe className="w-6 h-6" />,
+      description: 'Multi-cloud CDN with edge computing and real-time analytics',
+      difficulty: 85,
+      marketDemand: 88,
+      salaryImpact: '$160K+ USD',
+      timeline: '12-16 weeks',
+      architecture: {
+        components: [
+          'Global Edge Locations',
+          'Multi-Cloud Storage',
+          'CDN Orchestration',
+          'Edge Computing Workers',
+          'Real-time Analytics',
+          'Smart Caching',
+          'DDoS Protection',
+          'SSL/TLS Termination',
+          'Geographic Routing',
+          'Performance Monitoring'
+        ],
+        flow: 'User Request → Edge Location → Cache Check → Origin Fetch → Edge Processing → Response'
+      },
+      prerequisites: [
+        { skill: 'CDN Technologies', level: 'Advanced', reason: 'Caching strategies, edge computing, content optimization' },
+        { skill: 'Multi-Cloud Networking', level: 'Advanced', reason: 'Cross-cloud connectivity and traffic routing' },
+        { skill: 'Edge Computing', level: 'Intermediate', reason: 'Serverless functions at edge locations' },
+        { skill: 'Performance Optimization', level: 'Intermediate', reason: 'Latency reduction and bandwidth optimization' },
+        { skill: 'Security', level: 'Intermediate', reason: 'DDoS protection, WAF, certificate management' }
+      ],
+      outcomes: [
+        'Reduce global latency by 60% through edge optimization',
+        'Handle 1M+ requests per second with auto-scaling',
+        'Achieve 99.99% uptime with global failover',
+        'Save 40% on bandwidth costs through intelligent caching'
+      ],
+      ctoPitch: 'Global content delivery that enhances user experience and reduces infrastructure costs. ROI: 400% through improved performance and reduced bandwidth expenses.',
+      testingQuestions: [
+        'Design a cache invalidation strategy for a global CDN',
+        'How would you implement edge computing for dynamic content?',
+        'Explain your approach to geographic load balancing',
+        'How would you handle real-time analytics across edge locations?',
+        'Design a DDoS mitigation strategy at the edge'
+      ]
+    },
+    {
+      id: 'disaster-recovery',
+      title: 'Multi-Cloud Disaster Recovery',
+      icon: <Shield className="w-6 h-6" />,
+      description: 'GCP ↔ AWS automated failover with RTO < 5 minutes',
+      difficulty: 95,
+      marketDemand: 92,
+      salaryImpact: '$195K+ USD',
+      timeline: '18-22 weeks',
+      architecture: {
+        components: [
+          'Cross-Cloud Replication',
+          'Automated Failover Logic',
+          'Data Synchronization',
+          'Health Check Monitoring',
+          'Traffic Management',
+          'Backup Orchestration',
+          'Recovery Testing',
+          'Compliance Reporting',
+          'Cost Optimization',
+          'Network Connectivity'
+        ],
+        flow: 'Primary Cloud → Continuous Sync → Health Monitoring → Failure Detection → Automatic Failover → Recovery'
+      },
+      prerequisites: [
+        { skill: 'Multi-Cloud Architecture', level: 'Advanced', reason: 'GCP and AWS services integration and networking' },
+        { skill: 'Data Replication', level: 'Advanced', reason: 'Cross-cloud database and storage synchronization' },
+        { skill: 'Network Engineering', level: 'Advanced', reason: 'VPN, interconnects, routing protocols' },
+        { skill: 'Automation Scripting', level: 'Advanced', reason: 'Complex failover orchestration logic' },
+        { skill: 'Disaster Recovery Planning', level: 'Intermediate', reason: 'RTO/RPO requirements and testing procedures' }
+      ],
+      outcomes: [
+        'Achieve RTO of <5 minutes and RPO of <1 minute',
+        'Ensure 99.999% availability across cloud failures',
+        'Automate 95% of disaster recovery procedures',
+        'Reduce DR testing time from days to hours'
+      ],
+      ctoPitch: 'Business continuity solution that protects against cloud provider outages and ensures regulatory compliance. ROI: 600% through prevented downtime costs.',
+      testingQuestions: [
+        'Design a cross-cloud data replication strategy with conflict resolution',
+        'How would you implement automated failover testing without affecting production?',
+        'Explain your approach to network failover between GCP and AWS',
+        'How would you handle stateful applications during cloud failover?',
+        'Design a cost-effective DR solution that meets strict RTO requirements'
+      ]
+    },
+    {
+      id: 'dx-platform',
+      title: 'Developer Experience Platform (Backstage)',
+      icon: <Code className="w-6 h-6" />,
+      description: 'Self-service infrastructure portal with golden path templates',
+      difficulty: 90,
       marketDemand: 98,
       salaryImpact: '$200K+ USD',
       timeline: '16-20 weeks',
       architecture: {
         components: [
-          'Istio Service Mesh',
-          'Open Policy Agent (OPA)',
-          'HashiCorp Vault',
-          'Falco Runtime Security',
-          'Compliance Scanner',
-          'Certificate Management',
-          'Identity Provider (OIDC)',
-          'Security Dashboard'
+          'Backstage.io Core',
+          'Service Catalog',
+          'Template Engine',
+          'Terraform Modules',
+          'CI/CD Integration',
+          'Cost Tracking',
+          'Security Scanning',
+          'Documentation Portal',
+          'API Management',
+          'Developer Metrics'
         ],
-        flow: 'Policy Definition → Deployment → Runtime Enforcement → Monitoring → Compliance Reporting → Remediation'
+        flow: 'Developer Request → Template Selection → Infrastructure Provisioning → CI/CD Setup → Monitoring Integration'
       },
       prerequisites: [
-        { skill: 'Security Fundamentals', level: 'Advanced', reason: 'Zero-trust architecture and threat modeling' },
-        { skill: 'Istio Service Mesh', level: 'Advanced', reason: 'mTLS and traffic policy enforcement' },
-        { skill: 'OPA/Rego', level: 'Intermediate', reason: 'Policy-as-code implementation' },
-        { skill: 'PKI/Certificate Management', level: 'Intermediate', reason: 'Automated certificate lifecycle' },
-        { skill: 'Compliance Frameworks', level: 'Basic', reason: 'SOC2, PCI-DSS, GDPR requirements' }
+        { skill: 'Backstage.io', level: 'Advanced', reason: 'Plugin development and custom integrations' },
+        { skill: 'Platform Engineering', level: 'Advanced', reason: 'Developer experience design and automation' },
+        { skill: 'React/TypeScript', level: 'Intermediate', reason: 'Custom UI components and plugins' },
+        { skill: 'Template Engines', level: 'Intermediate', reason: 'Dynamic infrastructure and application templates' },
+        { skill: 'API Design', level: 'Intermediate', reason: 'Internal developer APIs and integrations' }
       ],
       outcomes: [
-        'Achieve SOC2 Type II compliance in 6 months vs 18 months',
-        'Reduce security incidents by 95%',
-        'Automate 90% of compliance evidence collection',
-        'Save $3M+ annually in audit and remediation costs'
+        'Reduce developer onboarding from 2 weeks to 2 hours',
+        'Increase deployment frequency by 400%',
+        'Standardize security and compliance across all services',
+        'Save $3M+ annually in developer productivity'
       ],
-      ctoPitch: 'Embed security into every deployment with zero friction for developers. ROI: 500% through automated compliance and prevented breaches.',
+      ctoPitch: 'Transform developer productivity by eliminating toil and standardizing best practices. ROI: 500% through reduced onboarding time and faster feature delivery.',
       testingQuestions: [
-        'Design a zero-trust architecture for microservices',
-        'How would you implement policy-as-code with OPA?',
-        'Explain your approach to automated certificate rotation',
-        'How would you detect and respond to runtime threats?',
-        'Design a compliance evidence collection system'
+        'How would you implement dynamic Terraform template generation in Backstage?',
+        'Design a plugin architecture for extending platform capabilities',
+        'How would you handle multi-tenant resource isolation in a developer platform?',
+        'Explain your strategy for measuring and improving developer experience',
+        'How would you implement cost allocation and chargeback for developer resources?'
+      ]
+    },
+    {
+      id: 'security-platform',
+      title: 'Zero-Trust Security Platform',
+      icon: <Network className="w-6 h-6" />,
+      description: 'Zero-trust architecture with automated compliance and threat detection',
+      difficulty: 98,
+      marketDemand: 99,
+      salaryImpact: '$210K+ USD',
+      timeline: '20-24 weeks',
+      architecture: {
+        components: [
+          'Zero-Trust Network',
+          'Identity Verification',
+          'Policy Engine (OPA)',
+          'Runtime Security (Falco)',
+          'Compliance Automation',
+          'Threat Detection ML',
+          'Certificate Management',
+          'Audit Logging',
+          'Incident Response',
+          'Security Metrics'
+        ],
+        flow: 'Request → Identity Verification → Policy Check → Runtime Monitoring → Threat Analysis → Response'
+      },
+      prerequisites: [
+        { skill: 'Zero-Trust Architecture', level: 'Advanced', reason: 'Network segmentation, identity-based security' },
+        { skill: 'Security Engineering', level: 'Advanced', reason: 'Threat modeling, security automation, compliance' },
+        { skill: 'Policy as Code', level: 'Advanced', reason: 'OPA/Rego policy development and enforcement' },
+        { skill: 'Machine Learning', level: 'Intermediate', reason: 'Anomaly detection and threat analysis' },
+        { skill: 'Compliance Frameworks', level: 'Intermediate', reason: 'SOC2, PCI-DSS, GDPR automation' }
+      ],
+      outcomes: [
+        'Achieve continuous compliance with automated evidence collection',
+        'Reduce security incidents by 95% through proactive detection',
+        'Enable zero-trust access for all applications and services',
+        'Save $5M+ annually in security and compliance costs'
+      ],
+      ctoPitch: 'Comprehensive security platform that embeds protection into every layer while maintaining developer velocity. ROI: 700% through prevented breaches and automated compliance.',
+      testingQuestions: [
+        'Design a zero-trust architecture for a microservices environment',
+        'How would you implement continuous compliance monitoring and reporting?',
+        'Explain your approach to behavioral anomaly detection using machine learning',
+        'How would you handle incident response automation in a cloud-native environment?',
+        'Design a policy-as-code system that scales across multiple teams and environments'
       ]
     }
   ];
 
   const overallPrerequisites = [
-    { category: 'Cloud Platforms', skills: ['GCP/AWS Core Services', 'Multi-cloud Architecture'], time: '2-3 months' },
-    { category: 'Container Orchestration', skills: ['Kubernetes Advanced', 'Helm Charts', 'Operators'], time: '3-4 months' },
-    { category: 'Infrastructure as Code', skills: ['Terraform Advanced', 'Ansible', 'GitOps'], time: '2-3 months' },
-    { category: 'Programming', skills: ['Go', 'Python', 'TypeScript', 'Bash'], time: '4-6 months' },
-    { category: 'Observability', skills: ['Prometheus', 'Grafana', 'OpenTelemetry', 'Logging'], time: '2-3 months' },
-    { category: 'Security', skills: ['Zero-trust', 'PKI', 'RBAC', 'Policy Engines'], time: '3-4 months' }
+    { category: 'Cloud Platforms', skills: ['GCP Advanced', 'AWS Advanced', 'Multi-cloud Networking'], time: '4-6 months' },
+    { category: 'Container Orchestration', skills: ['Kubernetes Advanced', 'Istio Service Mesh', 'Custom Operators'], time: '4-5 months' },
+    { category: 'Infrastructure as Code', skills: ['Terraform Advanced', 'Pulumi', 'GitOps Workflows'], time: '3-4 months' },
+    { category: 'Programming', skills: ['Go', 'Python', 'TypeScript', 'Rust'], time: '6-8 months' },
+    { category: 'Platform Engineering', skills: ['Backstage.io', 'Developer Experience', 'API Design'], time: '3-4 months' },
+    { category: 'Security & Compliance', skills: ['Zero-trust', 'Policy-as-Code', 'Compliance Automation'], time: '4-5 months' },
+    { category: 'Observability', skills: ['Prometheus', 'OpenTelemetry', 'ML for Monitoring'], time: '3-4 months' },
+    { category: 'Data Engineering', skills: ['Event Streaming', 'Data Pipelines', 'Real-time Analytics'], time: '3-4 months' }
   ];
 
   return (
@@ -177,16 +326,16 @@ const Index = () => {
         <div className="absolute inset-0 gradient-primary opacity-10"></div>
         <div className="relative max-w-7xl mx-auto text-center">
           <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
-            Platform Engineering Mastery
+            6 Platform Engineering Projects
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Build production-grade platforms that companies compete to hire you for. 
-            Transform from DevOps Engineer to Platform Engineering Leader.
+            Master the complete platform engineering stack. From cloud-native e-commerce to zero-trust security.
+            Build production-grade systems that make companies compete to hire you.
           </p>
           <div className="flex gap-4 justify-center items-center">
             <Badge variant="secondary" className="text-lg px-4 py-2">
               <DollarSign className="w-4 h-4 mr-2" />
-              Target: $200K+ USD
+              Target: $210K+ USD
             </Badge>
             <Badge variant="secondary" className="text-lg px-4 py-2">
               <Globe className="w-4 h-4 mr-2" />
@@ -203,7 +352,7 @@ const Index = () => {
       <div className="max-w-7xl mx-auto px-6 pb-20">
         <Tabs defaultValue="projects" className="w-full">
           <TabsList className="grid w-full grid-cols-4 mb-8">
-            <TabsTrigger value="projects">Projects</TabsTrigger>
+            <TabsTrigger value="projects">All 6 Projects</TabsTrigger>
             <TabsTrigger value="prerequisites">Prerequisites</TabsTrigger>
             <TabsTrigger value="career">Career Impact</TabsTrigger>
             <TabsTrigger value="strategy">Strategy</TabsTrigger>
@@ -412,15 +561,15 @@ const Index = () => {
                     <Progress value={17} className="h-3" />
                   </div>
                   <div>
-                    <div className="flex justify-between text-sm mb-2">
-                      <span>Target (International Remote)</span>
-                      <span>$200K USD</span>
-                    </div>
-                    <Progress value={100} className="h-3" />
+                        <div className="flex justify-between text-sm">
+                          <span>Target (Staff Platform Engineer)</span>
+                          <span>$210K USD</span>
+                        </div>
+                        <Progress value={100} className="h-3 mb-2" />
                   </div>
                   <div className="p-3 bg-primary/10 rounded-lg">
-                    <p className="text-sm font-semibold text-primary">
-                      Growth Potential: 1,076% increase
+                        <p className="text-sm font-semibold text-primary">
+                          Growth Potential: 1,135% increase
                     </p>
                   </div>
                 </CardContent>
@@ -504,13 +653,15 @@ const Index = () => {
                     <AccordionTrigger>Are 3 projects enough?</AccordionTrigger>
                     <AccordionContent>
                       <p className="text-sm text-muted-foreground mb-3">
-                        <strong>No - You need 5-6 projects for "companies compete for you" level:</strong>
+                        <strong>Target: 6 complete projects for "companies compete for you" level:</strong>
                       </p>
                       <ul className="space-y-2 text-sm">
-                        <li>• Core 3: DX Platform, Observability, Security (Foundation)</li>
-                        <li>• +1: Multi-Cloud Disaster Recovery (Advanced)</li>
-                        <li>• +1: ML/AI Platform for Dev Productivity (Cutting-edge)</li>
-                        <li>• +1: Cost Optimization Engine (Business Impact)</li>
+                        <li>• Project 1: Cloud-Native E-Commerce (Foundation)</li>
+                        <li>• Project 2: Multi-Tenant SaaS Platform (Scaling)</li>
+                        <li>• Project 3: Global CDN (Performance)</li>
+                        <li>• Project 4: Multi-Cloud Disaster Recovery (Resilience)</li>
+                        <li>• Project 5: Developer Experience Platform (Productivity)</li>
+                        <li>• Project 6: Zero-Trust Security (Compliance)</li>
                       </ul>
                     </AccordionContent>
                   </AccordionItem>
@@ -521,19 +672,15 @@ const Index = () => {
                       <div className="space-y-3 text-sm">
                         <div className="flex justify-between">
                           <span>Prerequisites mastery:</span>
-                          <Badge variant="secondary">6-8 months</Badge>
+                          <Badge variant="secondary">8-12 months</Badge>
                         </div>
                         <div className="flex justify-between">
-                          <span>Core 3 projects:</span>
-                          <Badge variant="secondary">8-10 months</Badge>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>Advanced projects:</span>
-                          <Badge variant="secondary">4-6 months</Badge>
+                          <span>Core 6 projects:</span>
+                          <Badge variant="secondary">18-24 months</Badge>
                         </div>
                         <div className="flex justify-between font-semibold">
-                          <span>Total to premium level:</span>
-                          <Badge className="gradient-primary text-primary-foreground">18-24 months</Badge>
+                          <span>Total to Staff level:</span>
+                          <Badge className="gradient-primary text-primary-foreground">26-36 months</Badge>
                         </div>
                       </div>
                     </AccordionContent>
@@ -570,7 +717,7 @@ const Index = () => {
                     <AccordionContent>
                       <div className="space-y-3">
                         <p className="text-sm text-muted-foreground">
-                          Position yourself as a "Platform Engineering Specialist" not "DevOps Engineer"
+                          Position yourself as a "Staff Platform Engineer" not "Senior DevOps Engineer"
                         </p>
                         <div className="grid md:grid-cols-2 gap-4 text-sm">
                           <div>
