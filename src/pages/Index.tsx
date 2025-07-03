@@ -309,14 +309,20 @@ const Index = () => {
   ];
 
   const overallPrerequisites = [
-    { category: 'Cloud Platforms', skills: ['GCP Advanced', 'AWS Advanced', 'Multi-cloud Networking'], time: '4-6 months' },
-    { category: 'Container Orchestration', skills: ['Kubernetes Advanced', 'Istio Service Mesh', 'Custom Operators'], time: '4-5 months' },
-    { category: 'Infrastructure as Code', skills: ['Terraform Advanced', 'Pulumi', 'GitOps Workflows'], time: '3-4 months' },
-    { category: 'Programming', skills: ['Go', 'Python', 'TypeScript', 'Rust'], time: '6-8 months' },
-    { category: 'Platform Engineering', skills: ['Backstage.io', 'Developer Experience', 'API Design'], time: '3-4 months' },
-    { category: 'Security & Compliance', skills: ['Zero-trust', 'Policy-as-Code', 'Compliance Automation'], time: '4-5 months' },
-    { category: 'Observability', skills: ['Prometheus', 'OpenTelemetry', 'ML for Monitoring'], time: '3-4 months' },
-    { category: 'Data Engineering', skills: ['Event Streaming', 'Data Pipelines', 'Real-time Analytics'], time: '3-4 months' }
+    { category: 'Operating Systems & Linux', skills: ['Linux Administration', 'Shell Scripting (Bash/Zsh)', 'System Performance Tuning', 'Process Management', 'File Systems & Storage'], time: '3-4 months' },
+    { category: 'Networking Fundamentals', skills: ['TCP/IP Stack', 'DNS, DHCP, Load Balancing', 'VPNs & Network Security', 'CDN & Edge Computing', 'Network Troubleshooting'], time: '3-4 months' },
+    { category: 'Version Control & Git', skills: ['Advanced Git Workflows', 'Branching Strategies', 'Git Hooks & Automation', 'Code Review Processes', 'Merge Conflict Resolution'], time: '1-2 months' },
+    { category: 'Container Technologies', skills: ['Docker Advanced', 'Container Security', 'Multi-stage Builds', 'Container Registries', 'Docker Compose'], time: '2-3 months' },
+    { category: 'Container Orchestration', skills: ['Kubernetes Advanced', 'Istio Service Mesh', 'Custom Operators', 'Helm Charts', 'RBAC & Security'], time: '4-5 months' },
+    { category: 'Cloud Platforms', skills: ['GCP Advanced', 'AWS Advanced', 'Multi-cloud Networking', 'IAM & Security', 'Cost Optimization'], time: '4-6 months' },
+    { category: 'Infrastructure as Code', skills: ['Terraform Advanced', 'Pulumi', 'GitOps Workflows', 'State Management', 'Module Development'], time: '3-4 months' },
+    { category: 'Programming & Scripting', skills: ['Go', 'Python', 'TypeScript', 'Rust', 'Shell Scripting'], time: '6-8 months' },
+    { category: 'CI/CD & Automation', skills: ['Jenkins/GitLab CI', 'ArgoCD/Flux', 'Pipeline as Code', 'Test Automation', 'Deployment Strategies'], time: '3-4 months' },
+    { category: 'Monitoring & Observability', skills: ['Prometheus', 'Grafana', 'OpenTelemetry', 'Log Management', 'SLI/SLO Design'], time: '3-4 months' },
+    { category: 'Database Technologies', skills: ['PostgreSQL/MySQL', 'Redis/Memcached', 'Database Sharding', 'Backup & Recovery', 'Performance Tuning'], time: '3-4 months' },
+    { category: 'Security & Compliance', skills: ['Zero-trust Architecture', 'Policy-as-Code', 'Compliance Automation', 'Vulnerability Management', 'Incident Response'], time: '4-5 months' },
+    { category: 'Platform Engineering', skills: ['Backstage.io', 'Developer Experience', 'API Design', 'Service Mesh', 'Internal Tools'], time: '3-4 months' },
+    { category: 'Data Engineering', skills: ['Event Streaming (Kafka)', 'Data Pipelines', 'Real-time Analytics', 'Message Queues', 'Data Warehousing'], time: '3-4 months' }
   ];
 
   return (
